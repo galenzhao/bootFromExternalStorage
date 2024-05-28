@@ -10,6 +10,9 @@ LINUX_FOR_TEGRA_DIRECTORY="$JETSON_FOLDER/Linux_for_Tegra"
 # Some helper functions. These scripts only flash Jetson Orins and Xaviers
 # https://docs.nvidia.com/jetson/archives/r35.4.1/DeveloperGuide/text/IN/QuickStart.html#jetson-modules-and-configurations
 
+#Swapping config xml or Xavier devices - without this change the system root is constrained to 14GB 
+sed -i 's/flash_l4t_t194_nvme.xml/flash_l4t_external.xml/' ./$JETSON_FOLDER/Linux_for_Tegra/nvsdkmanager_flash.sh
+
 declare -a device_names=(
     "jetson-agx-orin-devkit"
     "jetson-agx-xavier-devkit"
